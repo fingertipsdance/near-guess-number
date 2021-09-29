@@ -15,11 +15,17 @@ yarn serve
 yarn build
 ```
 
-### Lints and fixes files
+### contract
 ```
-yarn lint
+cd contract
+
+# contract build
+cargo build --target wasm32-unknown-unknown --release
+
+# contract test
+cargo test -- --nocapture
+
+# contract dev-deploy
+near dev-deploy target/wasm32-unknown-unknown/release/near_guess_number.wasm
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
-# near-guess-number
