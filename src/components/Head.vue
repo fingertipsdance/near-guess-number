@@ -58,8 +58,7 @@ export default {
       return window.networkId;
     },
   },
-  beforeCreate() {
-  },
+  beforeCreate() {},
   methods: {
     handleLoginMenuClick(action) {
       switch (action.key) {
@@ -73,7 +72,6 @@ export default {
       login();
     },
     logout: logout,
-
   },
 };
 </script>

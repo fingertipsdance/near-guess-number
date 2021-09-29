@@ -4,14 +4,17 @@
       <a-layout-header>
         <Head />
       </a-layout-header>
-	  <a-layout>
-	  <a-layout-sider width="450" :style="{overflow: 'auto', height: '100vh'}">
-	  	<History />
-	  </a-layout-sider>
-      <a-layout-content>
-        <Game />
-      </a-layout-content>
-	  </a-layout>
+      <a-layout>
+        <a-layout-sider
+          width="450"
+          :style="{ overflow: 'auto', height: '100vh' }"
+        >
+          <History />
+        </a-layout-sider>
+        <a-layout-content>
+          <Game />
+        </a-layout-content>
+      </a-layout>
     </a-layout>
   </div>
 </template>
@@ -40,9 +43,6 @@
 }
 #components-layout-basic .ant-layout-content {
   background-image: linear-gradient(#f3f3fb, #a9d7f1);
-  /*background: rgba(16, 142, 233, 1);*/
-  /*background-size: 100% 100%;*/
-  /*color: #fff;*/
   height: 100vh;
   min-height: 120px;
 }
@@ -71,7 +71,7 @@ export default {
   components: {
     Head,
     Game,
-	History,
+    History,
   },
 
   computed: {

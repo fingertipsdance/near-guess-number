@@ -33,9 +33,9 @@
               v-model="inputValue"
               style="width: 100px; text-align: center; border-left: 0"
               placeholder="Maximum"
-			  :max="rangeMax"
-			  :min="rangeMin"
-			  @change="onChange"
+              :max="rangeMax"
+              :min="rangeMin"
+              @change="onChange"
             />
           </a-input-group>
         </p>
@@ -70,7 +70,7 @@
             :max="inputNumberMax"
             style="width: 230px"
             :placeholder="inputNumberPlaceholder"
-			v-model="inputNumber"
+            v-model="inputNumber"
           />
         </p>
       </a-col>
@@ -84,7 +84,6 @@
       align="middle"
       style="margin: 20px"
     >
-	
       <a-col :span="4">
         <p class="height-100">投注金额</p>
       </a-col>
@@ -93,15 +92,15 @@
           <a-input-number
             :min="rangeAmountMin"
             :max="rangeAmountMax"
-			:step="0.01"
+            :step="0.01"
             style="width: 230px"
             placeholder="0.01 ~ 1"
-			v-model="amount"
+            v-model="amount"
           />
         </p>
       </a-col>
       <a-col :span="4">
-        <p class="height-80 description">金额范围 0.01 ~ 1 </p>
+        <p class="height-80 description">金额范围 0.01 ~ 1</p>
       </a-col>
     </a-row>
     <a-row
@@ -138,12 +137,12 @@ export default {
       rangeMin: 2,
       rangeMax: 100,
       inputNumberMax: 100,
-	  inputNumber: null,
+      inputNumber: null,
       inputNumberPlaceholder: "请输入 1  ~  100",
       loading: false,
-	  amount: 0.01,
-	  rangeAmountMin: 0.01,
-	  rangeAmountMax: 1,
+      amount: 0.01,
+      rangeAmountMin: 0.01,
+      rangeAmountMax: 1,
     };
   },
   methods: {
@@ -153,27 +152,23 @@ export default {
     },
     async guess_number() {
       this.loading = true;
-	  console.log(this.inputNumber, this.inputNumberMax)
-	  if (this.inputNumber < 1 || this.inputNumber > this.inputNumberMax) {
-		  this.loading = false
-		  return this.$message.error("请输入有效的数字")
+      console.log(this.inputNumber, this.inputNumberMax);
+      if (this.inputNumber < 1 || this.inputNumber > this.inputNumberMax) {
+        this.loading = false;
+        return this.$message.error("请输入有效的数字");
       }
 
-
-      const deposit = parseNearAmount(this.amount+"");
+      const deposit = parseNearAmount(this.amount + "");
       await window.walletConnection.account().functionCall(
         window.nearConfig.contractName,
         "guess_number",
         {
-			number: this.inputNumber,
-			maximum: this.inputNumberMax,
+          number: this.inputNumber,
+          maximum: this.inputNumberMax,
         },
         window.nearConfig.GAS,
         deposit
       );
-
-
-
     },
   },
 };
