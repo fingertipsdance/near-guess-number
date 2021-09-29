@@ -39,17 +39,17 @@ const columns = [
   {
     title: "投注金额",
     dataIndex: "deposit",
-    width: 20,
+    width: 18,
   },
   {
     title: "投注号码",
     dataIndex: "number",
-    width: 20,
+    width: 18,
   },
   {
     title: "开奖",
     dataIndex: "win_num",
-    width: 25,
+    width: 30,
     scopedSlots: { customRender: "tags" },
   },
 ];
